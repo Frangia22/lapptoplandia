@@ -1,6 +1,7 @@
 <main id="content" class="container">
     <div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
+						{{#if data}}
 						<table class="table">
 							<thead>
 								<tr>
@@ -14,19 +15,27 @@
                                     
 								</tr>
 							</thead>
+							{{#each data}}
 							<tbody>
 								<tr>
-									<td>#451231</td>
-									<td>Dell</td>
-									<td>url</td>
-                                    <td>Lorem Isun</td>
-									<td>$99.00</td>
-									<td>8 Gb ram, 240 Gb ssd</td>
+									<td># {{id}}</td>
+									<td>{{nombre}}</td>
+									<td>{{imagen}}</td>
+                                    <td>{{descripcion}}</td>
+									<td>$ {{precio}}</td>
+									<td>{{caracteristicas}}</td>
 									<td><a href="order.html" class="btn btn-success">Editar</a>
                                     <a href="order.html" class="btn btn-danger">Eliminar</a></td>
 								</tr>							
 							</tbody>
+							{{/each}}
 						</table>
-					</div>
-				</div>
+						{{else}}
+						<h1>No hay productos </h1>
+						{{/if}}
+		</div>
+	</div>
+	<div class="row col-md-12">
+		<a href="order.html" class="btn btn-primary">Agregar productos</a></td>
+	</div>
 </main>

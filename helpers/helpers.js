@@ -1,3 +1,4 @@
+/*
 const axios = require('axios');
 const hbs = require('hbs');
 
@@ -16,3 +17,4 @@ axios.get('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
     hbs.registerHelper('dolarApeso', (objeto) => {
         let calculoSinDecimales = (dolarHoy * objeto).toFixed(0);
     });
+    */
