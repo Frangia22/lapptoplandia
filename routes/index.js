@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
       'nombre':'Dell',
       'imagen':'Url',
       'descripcion':'Lorem use',
-      'precio':'99.99',
+      'precio':'599.99',
       'caracteristicas':'8 Gb Ram, 240 Gb SSD, Ryzen 5',
     },  
     {
@@ -17,8 +17,16 @@ router.get('/', (req, res) => {
       'nombre':'Asus',
       'imagen':'Url',
       'descripcion':'Lorem use',
-      'precio':'149.99',
+      'precio':'799.99',
       'caracteristicas':'12 Gb Ram, 240 Gb SSD, Ryzen 7',
+    },
+    {
+      'id':'3',
+      'nombre':'Lenovo',
+      'imagen':'Url',
+      'descripcion':'Lorem use',
+      'precio':'1399.99',
+      'caracteristicas':'16 Gb Ram, 240 Gb SSD, 1 Tb HDD, Intel i7',
     }
   ] 
   });
@@ -46,5 +54,12 @@ router.get('/admin', (req, res) => {
     ]
   });
 });
-
+/* Contacto */
+router.get('/contacto', (req, res) => {
+  res.render('pages/contacto');
+});
+/* Contacto post */
+router.post('/contacto', (req, res) => {
+  res.send('BIen');
+});
 module.exports = router;

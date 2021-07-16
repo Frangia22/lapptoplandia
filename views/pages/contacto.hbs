@@ -1,0 +1,48 @@
+<main>
+    <div class="contact-section">
+            <div class="container w-50">
+                {{!-- {{#if mostrar}} }}
+                <div class="text-center alert alert-success" role="alert">{{mensaje}}</div>        
+                {{/if}}--}}
+        
+                <div class="row g-2">
+                    <!-- Contact Form -->
+                    <form action="/contacto" method="POST" class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-4">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+                            <div class="invalid-feedback">
+                            Ingrese un nombre
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese su email" required>
+                            <div class="valid-tooltip">
+                            Ingrese un email
+                            </div>
+                        </div>                                             
+                        <div class="col-md-4">
+                            <label for="asunto" class="form-label">Asunto</label>
+                            <select class="form-select" id="asunto" name="asunto" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Comprar producto</option>
+                            <option>Otras consultas</option>
+                            </select>
+                            <div class="valid-tooltip">
+                            Seleccione un asunto
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Mensaje....." minlength="5"></textarea>
+                        </div>                        
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Contactar</button>
+                        </div>
+                        </form>
+                    <!-- ./End Contact Form -->
+        
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+</main>
