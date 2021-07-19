@@ -54,6 +54,14 @@ router.get('/admin', (req, res) => {
     ]
   });
 });
+/* Login */
+router.get('/login', (req, res) => {
+  res.render('pages/login');
+});
+/* comoComprar */
+router.get('/comoComprar', (req, res) => {
+  res.render('pages/comoComprar');
+});
 /* Contacto */
 router.get('/contacto', (req, res) => {
   res.render('pages/contacto');
