@@ -9,12 +9,12 @@
                     <h2>{{dolarApeso precio}}</h2>
                     <p class="card-text">{{descripcion}}</p>
                     <a href="#" class="btn btn-primary">Comprar</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="{{id}}">Ver mas</a>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verProducto-{{id}}">Ver mas</a>
                 </div>
             </div>
         </div>            
-        <!-- Modal 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-id="{{id}}">
+        <!-- Modal -->
+        <div class="modal fade" id="verProducto-{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -34,7 +34,7 @@
             </div>
             </div>
         </div>
-        </div> -->
+        </div> 
         {{/each}} 
     </div>
 </main>

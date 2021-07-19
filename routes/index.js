@@ -1,37 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const db = require('../db');
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Express', data: [
-    {
-      'id':'1',
-      'nombre':'Dell',
-      'imagen':'Url',
-      'descripcion':'Lorem use',
-      'precio':'599.99',
-      'caracteristicas':'8 Gb Ram, 240 Gb SSD, Ryzen 5',
-    },  
-    {
-      'id':'2',
-      'nombre':'Asus',
-      'imagen':'Url',
-      'descripcion':'Lorem use',
-      'precio':'799.99',
-      'caracteristicas':'12 Gb Ram, 240 Gb SSD, Ryzen 7',
-    },
-    {
-      'id':'3',
-      'nombre':'Lenovo',
-      'imagen':'Url',
-      'descripcion':'Lorem use',
-      'precio':'1399.99',
-      'caracteristicas':'16 Gb Ram, 240 Gb SSD, 1 Tb HDD, Intel i7',
-    }
-  ] 
-  });
+  const sql = 'Select * From products';
+  db.query(sql, (err, data) => {
+    if (err) res.send(`Ocurrio un error ${err.code}`);
+    res.render('index', { title: 'Express', data });
+  });  
 });
-/* Admin */
+/* Admin 
 router.get('/admin', (req, res) => {
   res.render('pages/admin', {
     data: [
@@ -53,7 +32,7 @@ router.get('/admin', (req, res) => {
       }
     ]
   });
-});
+});*/
 /* Login */
 router.get('/login', (req, res) => {
   res.render('pages/login');
@@ -70,4 +49,14 @@ router.get('/contacto', (req, res) => {
 router.post('/contacto', (req, res) => {
   res.send('BIen');
 });
+/* Admin get */
+/* Contacto */
+router.get('/admin', (req, res) => {
+  const sql = 'Select * From products';
+  db.query(sql, (err, data) => {
+    if (err) res.send(`Ocurrio un error ${err.code}`);
+    res.render('pages/admin', { data });
+  });  
+});
+
 module.exports = router;
