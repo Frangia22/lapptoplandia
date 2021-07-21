@@ -72,5 +72,42 @@ router.post('/agregar', (req, res) => {
   });
   res.render('pages/agregar');
 });
+router.get('/editar/:id', (req, res) => {
+  const id = req.params.id;
+  let sql = 'Select * From products Where id= ?';
+  db.query(sql, [id], (err, data) => {
+    if (err) res.send(`Ocurrio un error ${err.code}`);
+    if( data == ""){
+      res.send(`
+      <h1>no existe producto con id ${id}</h1>
+      <a href="/admin">Ver listado de productos</a>    
+      `);
+    }else {
+      res.render('pages/editar', {data:data[0]});   
+    }     
+  });
+  
+});
+router.post('/editar/:id', (req, res) => {
+  const id = req.params.id;
+  const productoDetalle = req.body;
+
+  let sql = 'Update products Set ?Where id=?';
+  db.query(sql, [productoDetalle, id], (err, data) => {
+    if (err) res.send(`Ocurrio un error ${err.code}`);
+    console.log(`Producto cambiado sastifactoriamente`);
+  });
+  res.redirect('/admin');
+});
+router.get('/eliminar/:id', (req, res) => {
+  const id = req.params.id;
+
+  let sql = 'Delete From products Where id= ?';
+  db.query(sql, [id], (err, data) => {
+    if (err) res.send(`Ocurrio un error ${err.code}`);
+    console.log(`${data.affectedRows} - Producto eliminado sastifactoriamente`);
+  });
+  res.redirect('/admin');
+});
 
 module.exports = router;
