@@ -3,11 +3,11 @@
         {{#each data}}
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
-                <img src="" class="card-img-top" alt="...">
+                <img src="{{ url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h1 class="card-title">{{nombre}}</h1>
-                    <h2>{{dolarApeso precio}}</h2>
-                    <p class="card-text">{{descripcion}}</p>
+                    <h2>$ {{dolarApeso precio}}</h2>
+                    <p class="card-text">{{marca}} {{modelo}}</p>
                     <a href="#" class="btn btn-primary">Comprar</a>
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verProducto-{{id}}">Ver mas</a>
                 </div>
@@ -22,8 +22,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h1 class="card-title">{{nombre}}</h1>
-                <h2>{{precio}}</h2>
+                <h1 class="card-title">{{marca}} {{modelo}}</h1>
+                <h2>$ {{precio}}</h2>
+                <img src="{{ url }}" class="card-img-top" alt="...">
                 <h3>{{id}}</h3>
                 <p class="card-text">{{descripcion}}</p>
                 <p class="card-text">{{caracteristicas}}</p>

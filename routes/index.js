@@ -58,5 +58,19 @@ router.get('/admin', (req, res) => {
     res.render('pages/admin', { data });
   });  
 });
+router.get('/agregar', (req, res) => {
+  res.render('pages/agregar');
+});
+router.post('/agregar', (req, res) => {
+  const productoDetalle = req.body;
+  console.log('Producto detalle',productoDetalle);
+
+  let sql = 'Insert Into products Set ?';
+  db.query(sql, productoDetalle, (err, data) => {
+    if (err) res.send(`Ocurrio un error ${err.code}`);
+    console.log(`Producto agregado sastifactoriamente`);
+  });
+  res.render('pages/agregar');
+});
 
 module.exports = router;
