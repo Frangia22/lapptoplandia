@@ -1,4 +1,7 @@
 <main id="content" class="container">
+	{{#if error}}
+        <div class="alert alert-danger mt-3" role="alert">{{error}}</div>
+    {{/if}}
     <div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						{{#if data}}
@@ -6,7 +9,8 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Nombre</th>
+									<th>Marca</th>
+									<th>Modelo</th>
                                     <th>Imagen</th>
 									<th>Descripcion</th>
 									<th>Precio</th>
