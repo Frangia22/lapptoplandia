@@ -6,6 +6,7 @@ var logger = require('morgan');
 var hbs = require('hbs');
 require('dotenv').config();
 require('./helpers/helpers');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,6 +19,12 @@ hbs.registerPartials(__dirname + '/views/layout');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(session({
+  secret: 'holatodes',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 30000 }
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
