@@ -17,20 +17,22 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link"
-                href="/admin" aria-disabled="true">Productos</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link"
                 href="/contacto" aria-disabled="true">Contacto</a>
             </li>
+            {{#if logueado}}
             <li class="nav-item active">
               <a class="nav-link"
-                href="#" aria-disabled="true">Carrito</a>
+                href="/admin" aria-disabled="true">Admin</a>
             </li>
+            <li class="nav-item ms-auto">
+              <a href="/logout" class="nav-link">Logout</a>
+            </li>
+            {{else}}
             <li class="nav-item active">
               <a class="nav-link"
                 href="/login" aria-disabled="true">Iniciar</a>
             </li>
+            {{/if}}
           </ul>
         </div>
 </nav>
