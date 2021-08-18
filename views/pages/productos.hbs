@@ -1,0 +1,38 @@
+<main id="content" class="container">    
+    <div class="row">
+        {{#each data}}
+        <div class="col-md-4 my-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url }}" class="card-img-top card-img-h" alt="...">
+                <div class="card-body">
+                    <h2>$ {{dolarApeso precio}}</h2>
+                    <p class="card-text">{{marca}} {{modelo}}</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verProducto-{{id}}">Ver más</a>
+                </div>
+            </div>
+        </div>            
+        <!-- Modal -->
+        <div class="modal fade" id="verProducto-{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{marca}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h1 class="card-title">{{modelo}}</h1>
+                <h2>$ {{ dolarApeso precio}}</h2>
+                <img src="{{ url }}" class="card-img-top" alt="...">
+                <p class="card-text">{{descripcion}}</p>
+                <p class="card-text">{{caracteristicas}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="/producto/{{id}}">Vér producto</a></button>
+            </div>
+            </div>
+        </div>
+        </div> 
+        {{/each}}
+    </div>
+</main>

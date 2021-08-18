@@ -1,0 +1,22 @@
+<main id="content" class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <img class="card-img-top" src="{{ data.url }}" alt="">
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ data.marca }} {{ data.modelo }}</h1>
+                    <h2>${{ dolarApeso data.precio }}</h2>
+                    <a class="btn btn-primary" href="#">Comprar</a>
+                    <p class="card-text"><strong>Descripción</strong></p>
+                    <p class="card-text">{{ data.descripcion }}</p>
+                    <p class="card-text"><strong>Características</strong></p>
+                    {{#list data.caracteristicas}}
+                        <li>{{this}}</li>
+                    {{/list}}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
