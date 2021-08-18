@@ -23,3 +23,15 @@ axios.get('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
         let calculoSinDecimales = (dolarHoy * objeto).toFixed(0);
         return new Intl.NumberFormat("es-AR").format(calculoSinDecimales);
     });
+    hbs.registerHelper('list', (objeto) => {
+        // Convierto en array la lista de características separadas previamente con "coma"
+	let array = objeto.split(",");
+	var html = "<ul>";
+
+	// Recorro array para que, cada valor, tenga el HTML <li> 
+	for (var i = 0; i < array.length; i++) {
+		html = `${html} <li> ${array[i]} </li>`;
+	}
+
+  	return html + "</ul>";
+    });
