@@ -1,5 +1,8 @@
 <main id="content" >
     <div class="container">
+        {{#if ok}}
+            <div class="alert alert-success text-center" role="alert">{{ok}}</div>
+        {{/if}}
         <form class="mx-auto" action="/agregar" method="post">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-4">
