@@ -17,6 +17,9 @@
                             <li class="nav-item"><a href="#" class="icoInstagram fs-2" title="Instagram"><i class="bi bi-instagram"></i></a></li>
                         </ul>
                 </div>
+                {{#if error}}
+                    <div class="alert alert-danger mt-3" role="alert">{{error}}</div>
+                {{/if}}
             </div>
         </div>
     </div>
