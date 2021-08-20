@@ -10,3 +10,14 @@ img {
   height: 200px;
   object-fit: contain;
 }
+.show-btn {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  .hide-field {
+    display: none !important;
+  }  
+  .show-btn {
+    display: block !important;
+  }
+}

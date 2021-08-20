@@ -8,13 +8,13 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th>ID</th>
+									<th class="hide-field">ID</th>
 									<th>Marca</th>
 									<th>Modelo</th>
-                                    <th>Imagen</th>
-									<th>Descripcion</th>
-									<th>Precio</th>
-									<th>Caracteristicas</th>
+                                    <th class="hide-field">Imagen</th>
+									<th class="hide-field">Descripcion</th>
+									<th class="hide-field">Precio</th>
+									<th class="hide-field">Caracteristicas</th>
 									<th>Acciones</th>
                                     
 								</tr>
@@ -22,17 +22,42 @@
 							{{#each data}}
 							<tbody>
 								<tr>
-									<td># {{id}}</td>
+									<td class="hide-field"># {{id}}</td>
 									<td>{{marca}}</td>
 									<td>{{modelo}}</td>
-									<td>{{url}}</td>
-                                    <td>{{descripcion}}</td>
-									<td>$ {{dolarApeso precio}}</td>
-									<td>{{caracteristicas}}</td>
-									<td><a href="/editar/{{id}}" class="btn btn-success">Editar</a>
-                                    <a href="/eliminar/{{id}}" class="btn btn-danger">Eliminar</a></td>
+									<td class="hide-field">{{url}}</td>
+                                    <td class="hide-field">{{descripcion}}</td>
+									<td class="hide-field">$ {{dolarApeso precio}}</td>
+									<td class="hide-field">{{caracteristicas}}</td>
+									<td><a href="/editar/{{id}}" class="hide-field btn btn-success mb-1 ">Editar</a>
+                                    <a href="/eliminar/{{id}}" class="hide-field btn btn-danger ">Eliminar</a>
+									<a href="#" class="show-btn btn btn-success" data-bs-toggle="modal" data-bs-target="#verProducto-{{id}}">Ver más</a></td>
 								</tr>							
 							</tbody>
+							<!-- Modal -->
+							<div class="modal fade" id="verProducto-{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">{{marca}}</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<h1 class="card-title">{{modelo}}</h1>
+									<h2>$ {{ dolarApeso precio}}</h2>
+									<img src="{{ url }}" class="card-img-top" alt="...">
+									<p class="card-text">{{descripcion}}</p>
+									<p class="card-text">{{caracteristicas}}</p>
+									<p class="card-text">Acciones</p>
+									<a href="/editar/{{id}}" class="btn btn-success">Editar</a>
+                                    <a href="/eliminar/{{id}}" class="btn btn-danger">Eliminar</a>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								</div>
+								</div>
+							</div>
+							</div> 
 							{{/each}}
 						</table>
 						{{else}}

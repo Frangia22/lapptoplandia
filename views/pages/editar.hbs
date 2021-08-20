@@ -2,34 +2,34 @@
     <div class="container">
         <form class="mx-auto" action="/editar/{{data.id}}" method="post">
                 <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-md-12">
                         <div class="row">
-                            <div class="mb-3 col-12 col-md-4">
+                            <div class="mb-3 col-md-12 col-lg-4">
                                 <label for="marca" class="form-label">Marca</label>
                                 <input type="text" class="form-control" id="marca" value="{{data.marca}}" placeholder="Marca del producto" name="marca" required>
                             </div>
-                            <div class="mb-3 col-12 col-md-4">
+                            <div class="mb-3 col-md-12 col-lg-4">
                                 <label for="modelo" class="form-label">Modelo</label>
                                 <input type="text" class="form-control" id="modelo" value="{{data.modelo}}" placeholder="Modelo del producto" name="modelo" required>
                             </div>
-                            <div class="mb-3 col-12 col-md-4">
+                            <div class="mb-3 col-md-12 col-lg-4">
                                 <label for="precio" class="form-label">Precio (u$s)</label>
                                 <input type="text" class="form-control" id="precio" value="{{data.precio}}" placeholder="$ Precio en dólares" name="precio" pattern="[0-9]{1,5}" required>
                             </div>
                         </div>                      
-                        <div class="mb-3 col-12">
+                        <div class="mb-3 col-md-12">
                             <label for="producto" class="form-label">Imagen (URL)</label>
                             <input type="text" class="form-control" value="{{data.url}}" id="url" placeholder="Ruta de la imagen" name="url" required>
                         </div>                       
                     </div>
                 </div>
-                    <div class="col-12 col-md-6 col-lg-8">
+                    <div class="col-md-12">
                         <div class="row">
-                            <div class="mb-3 col-8">
+                            <div class="mb-3 col-md-12 col-lg-8">
                                 <label for="descripcion" class="form-label">Descripcion</label>
                                 <textarea class="form-control" id="descripcion" rows="6" placeholder="Descripcion del producto" name="descripcion">{{data.descripcion}}</textarea>
                             </div>
-                            <div class="mb-3 col-4">
+                            <div class="mb-3 col-md-12 col-lg-4">
                                 <label for="caracteristicas" class="form-label">Caracteristicas</label>
                                 <textarea class="form-control" id="caracteristicas" rows="6" placeholder="Separar con coma las características"
                                     name="caracteristicas">{{data.caracteristicas}}</textarea>
